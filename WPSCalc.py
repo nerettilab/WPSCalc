@@ -128,14 +128,6 @@ else:
 	upper_bound=start_point+(window_size//float(2))
 	end_point=int(end)
 
-
-#print "Window Size: " + str(window_size)
-#print "Starting Midpoint: "+ str(start_point)
-#print "Starting Lower Bound: "+ str(lower_bound)
-#print "Starting Upper Bound: "+ str(upper_bound)
-#print "Final Midpoint: "+ str(end_point)
-
-
 ##FOR each position p in range of the midpoints to be checked...
 WPS={}
 for p in range(start_point, (end_point)):
@@ -146,15 +138,11 @@ for p in range(start_point, (end_point)):
 		if int(starts[v]) <= int(lower_bound) and int(ends[v]) > int(upper_bound):
 ##Increment the score at position p by +1
 			p_score=p_score+1
-			#print("ADDING 1 point at " + str(p) + " for data point " + str(v) + " on " + str(keys))
-			#print("because " + str(v[0]) + " is less than or equal to " + str(lower_bound) + " and " + str(v[1]) + " is greater than " + str(upper_bound))
 
 ##If any start points or any end points occur between start and end of window
 		elif (int(starts[v]) >= int(lower_bound) and int(starts[v]) <= int(upper_bound)) or (int(ends[v]) > int(lower_bound) and int(ends[v]) <= int(upper_bound)):
 ##Decrease the score at position p by -1
 			p_score=p_score-1
-			#print("REMOVING 1 point at " + str(p) + " for data point " + str(v) + " on " + str(keys))
-			#print("because " + str(v[0]) + " is greater than " + str(lower_bound) + " and less than or equal to " + str(upper_bound) + " OR " + str(v[1]) + " is greater than " + str(lower_bound) + " and less than or equal to " + str(upper_bound))
 
 ##Increment the lower and upper bounds of the window by 1 and record the window protection score at in a dictionary with key corresponding to point p
 	lower_bound=lower_bound+1
