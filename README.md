@@ -1,5 +1,7 @@
 # WPSCalc
-Calculates Window-Protection Score from aligned sequencing data over a given Chromosome &amp; interval
+Calculates Window-Protection Score (WPS) from aligned sequencing data over a given chromosome &amp; interval
+
+WPS is defined for each basepair within a region, for a given window of size K. The score for a given base is defined as the number of molecules spanning the full window (given basepair ± K/2) minus the number of molecules that align with an endpoint inside the window.
 
 ## Instructions:
 Specify bedfile, reference genome, chromosome, start coordinate, end coordinate, window size, and paired-end (True/False) as input arguments.
